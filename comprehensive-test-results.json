@@ -1,0 +1,335 @@
+{
+  "summary": {
+    "totalTests": 35,
+    "successfulTests": 30,
+    "failedTests": 5,
+    "averageRenderTime": 7,
+    "totalRenderTime": 232,
+    "successRate": "85.7"
+  },
+  "categoryResults": {
+    "Function Graphs": {
+      "total": 12,
+      "successful": 7,
+      "failed": 5
+    },
+    "Coordinate Systems": {
+      "total": 3,
+      "successful": 3,
+      "failed": 0
+    },
+    "Geometric Shapes": {
+      "total": 7,
+      "successful": 7,
+      "failed": 0
+    },
+    "Statistical Charts": {
+      "total": 7,
+      "successful": 7,
+      "failed": 0
+    },
+    "Advanced Mathematics": {
+      "total": 2,
+      "successful": 2,
+      "failed": 0
+    },
+    "Mathematical Proofs and Logic": {
+      "total": 2,
+      "successful": 2,
+      "failed": 0
+    },
+    "Educational Mathematics": {
+      "total": 2,
+      "successful": 2,
+      "failed": 0
+    }
+  },
+  "results": [
+    {
+      "name": "Linear Function",
+      "category": "Function Graphs",
+      "success": true,
+      "renderTime": 94,
+      "errors": []
+    },
+    {
+      "name": "Quadratic Function",
+      "category": "Function Graphs",
+      "success": false,
+      "renderTime": 3,
+      "errors": [
+        "Cannot parse expression: Value expected (char 3)"
+      ]
+    },
+    {
+      "name": "Cubic Function",
+      "category": "Function Graphs",
+      "success": false,
+      "renderTime": 3,
+      "errors": [
+        "Cannot parse expression: Value expected (char 3)"
+      ]
+    },
+    {
+      "name": "Polynomial Function (4th degree)",
+      "category": "Function Graphs",
+      "success": false,
+      "renderTime": 2,
+      "errors": [
+        "Cannot parse expression: Value expected (char 3)"
+      ]
+    },
+    {
+      "name": "Rational Function",
+      "category": "Function Graphs",
+      "success": false,
+      "renderTime": 3,
+      "errors": [
+        "Cannot parse expression: Value expected (char 6)"
+      ]
+    },
+    {
+      "name": "Exponential Function",
+      "category": "Function Graphs",
+      "success": true,
+      "renderTime": 4,
+      "errors": []
+    },
+    {
+      "name": "Logarithmic Function",
+      "category": "Function Graphs",
+      "success": true,
+      "renderTime": 3,
+      "errors": []
+    },
+    {
+      "name": "Sine Function",
+      "category": "Function Graphs",
+      "success": true,
+      "renderTime": 4,
+      "errors": []
+    },
+    {
+      "name": "Cosine Function",
+      "category": "Function Graphs",
+      "success": true,
+      "renderTime": 4,
+      "errors": []
+    },
+    {
+      "name": "Tangent Function",
+      "category": "Function Graphs",
+      "success": true,
+      "renderTime": 5,
+      "errors": []
+    },
+    {
+      "name": "Arcsine Function",
+      "category": "Function Graphs",
+      "success": false,
+      "renderTime": 1,
+      "errors": [
+        "Invalid function type: inverse-trigonometric",
+        "Parse failed: Invalid function type: inverse-trigonometric"
+      ]
+    },
+    {
+      "name": "Hyperbolic Sine",
+      "category": "Function Graphs",
+      "success": true,
+      "renderTime": 3,
+      "errors": []
+    },
+    {
+      "name": "Cartesian Coordinate System",
+      "category": "Coordinate Systems",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Polar Coordinate System",
+      "category": "Coordinate Systems",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Parametric Equations",
+      "category": "Coordinate Systems",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Point",
+      "category": "Geometric Shapes",
+      "success": true,
+      "renderTime": 1,
+      "errors": []
+    },
+    {
+      "name": "Line",
+      "category": "Geometric Shapes",
+      "success": true,
+      "renderTime": 1,
+      "errors": []
+    },
+    {
+      "name": "Circle",
+      "category": "Geometric Shapes",
+      "success": true,
+      "renderTime": 1,
+      "errors": []
+    },
+    {
+      "name": "Triangle",
+      "category": "Geometric Shapes",
+      "success": true,
+      "renderTime": 1,
+      "errors": []
+    },
+    {
+      "name": "Rectangle",
+      "category": "Geometric Shapes",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Pentagon",
+      "category": "Geometric Shapes",
+      "success": true,
+      "renderTime": 1,
+      "errors": []
+    },
+    {
+      "name": "Hexagon",
+      "category": "Geometric Shapes",
+      "success": true,
+      "renderTime": 1,
+      "errors": []
+    },
+    {
+      "name": "Histogram",
+      "category": "Statistical Charts",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Box Plot",
+      "category": "Statistical Charts",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Scatter Plot",
+      "category": "Statistical Charts",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Line Chart",
+      "category": "Statistical Charts",
+      "success": true,
+      "renderTime": 1,
+      "errors": []
+    },
+    {
+      "name": "Bar Chart",
+      "category": "Statistical Charts",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Pie Chart",
+      "category": "Statistical Charts",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Normal Distribution",
+      "category": "Statistical Charts",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Vector Field (Basic)",
+      "category": "Advanced Mathematics",
+      "success": true,
+      "renderTime": 6,
+      "errors": []
+    },
+    {
+      "name": "Contour Plot (Basic)",
+      "category": "Advanced Mathematics",
+      "success": true,
+      "renderTime": 62,
+      "errors": []
+    },
+    {
+      "name": "Venn Diagram",
+      "category": "Mathematical Proofs and Logic",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Truth Table",
+      "category": "Mathematical Proofs and Logic",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Number Line",
+      "category": "Educational Mathematics",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    },
+    {
+      "name": "Fraction Bars",
+      "category": "Educational Mathematics",
+      "success": true,
+      "renderTime": 2,
+      "errors": []
+    }
+  ],
+  "engineStats": {
+    "version": "1.0.0",
+    "supportedTypes": [
+      "math-function",
+      "geometry-shape",
+      "statistics-chart",
+      "coordinate-system"
+    ],
+    "config": {
+      "width": 800,
+      "height": 600,
+      "backgroundColor": "#ffffff",
+      "gridColor": "#e0e0e0",
+      "axisColor": "#333333",
+      "fontFamily": "Arial, sans-serif",
+      "fontSize": 12,
+      "lineWidth": 2,
+      "showGrid": true,
+      "showAxes": true,
+      "showLabels": true,
+      "enableLogging": true
+    },
+    "logStats": {
+      "totalLines": 1278,
+      "errorCount": 161,
+      "warnCount": 0,
+      "lastModified": "2026-02-19T11:29:31.934Z"
+    }
+  },
+  "timestamp": "2026-02-19T11:29:31.950Z"
+}

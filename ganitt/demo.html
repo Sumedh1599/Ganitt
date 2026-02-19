@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganitt - Math Diagram Component</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .demo-header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .demo-header p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .component-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>Ganitt</h1>
+            <p>Interactive Math Diagram Component</p>
+        </div>
+        
+        <div class="component-wrapper">
+            <!-- Ganitt Component Container -->
+            <div id="ganitt-container"></div>
+        </div>
+    </div>
+    
+    <!-- Load dependencies -->
+    <script src="../src/engine/math-diagram-engine.js"></script>
+    <script src="ganitt-component.js"></script>
+    
+    <script>
+        // Initialize Ganitt component
+        document.addEventListener('DOMContentLoaded', () => {
+            new GanittComponent('ganitt-container', {
+                width: 800,
+                height: 600,
+                autoRender: true
+            });
+        });
+    </script>
+</body>
+</html>

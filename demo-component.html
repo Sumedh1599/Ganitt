@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Diagram Component Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .demo-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .demo-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .demo-header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .component-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .demo-info {
+            background: #f8fafc;
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .demo-info h3 {
+            margin: 0 0 10px 0;
+            color: #374151;
+        }
+        
+        .demo-info ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #6b7280;
+        }
+        
+        .demo-info li {
+            margin: 5px 0;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 15px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .theme-toggle:hover {
+            background: #f3f4f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>Math Diagram Component</h1>
+            <p>Ganitt - Interactive Math Diagram Component with auto-rendering and live preview</p>
+        </div>
+        
+        <div class="component-wrapper">
+            <div class="demo-info">
+                <h3>✨ Features</h3>
+                <ul>
+                    <li>🎨 <strong>Auto-rendering</strong> - See your diagram update as you type</li>
+                    <li>📝 <strong>Input/Output Tabs</strong> - Clean separation between code and result</li>
+                    <li>🎯 <strong>Live Status</strong> - Real-time rendering status indicator</li>
+                    <li>💾 <strong>Export Options</strong> - Download image or copy to clipboard</li>
+                    <li>🌙 <strong>Theme Support</strong> - Light and dark modes</li>
+                    <li>📱 <strong>Responsive</strong> - Works on all screen sizes</li>
+                </ul>
+            </div>
+            
+            <!-- Component Container -->
+            <div id="math-diagram-container"></div>
+        </div>
+    </div>
+    
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+    
+    <!-- Load the Math Diagram Engine -->
+    <script src="src/engine/math-diagram-engine.js"></script>
+    <script src="src/components/math-diagram-component.js"></script>
+    
+    <script>
+        let currentTheme = 'light';
+        let component;
+        
+        // Initialize component when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Wait for engine to be available
+                if (typeof MathDiagramEngine === 'undefined') {
+                    console.error('MathDiagramEngine not loaded');
+                    return;
+                }
+                
+                // Initialize the component
+                component = new MathDiagramComponent('math-diagram-container', {
+                    title: '📊 Math Diagram Engine',
+                    width: 800,
+                    height: 600,
+                    autoRender: true,
+                    theme: currentTheme,
+                    initialContent: `math-function
+type: linear
+equation: 2*x + 3
+range-x: [-5, 5]
+range-y: [-5, 15]
+color: '#0066cc'
+title: 'Linear Function'
+subtitle: 'f(x) = 2x + 3'`
+                });
+                
+                console.log('Math Diagram Component initialized successfully');
+            } catch (error) {
+                console.error('Failed to initialize component:', error);
+            }
+        });
+        
+        // Theme toggle function
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = currentTheme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode';
+            
+            // Update component theme
+            if (component) {
+                component.options.theme = currentTheme;
+                component.render();
+                component.bindEvents();
+                
+                // Restore input content
+                const currentInput = component.getInput();
+                if (currentInput) {
+                    component.setInput(currentInput);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

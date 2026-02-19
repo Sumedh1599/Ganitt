@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Ganitt</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .demo-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .demo-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .demo-header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .component-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>Ganitt</h1>
+            <p>Math diagram component with examples sidebar</p>
+        </div>
+        
+        <div class="component-wrapper">
+            <!-- Ganitt Component Container -->
+            <div id="ganitt-container"></div>
+        </div>
+    </div>
+    
+    <!-- Load dependencies -->
+    <script type="module">
+        const version = Date.now();
+        const engineUrl = '/src/engine/math-diagram-engine.js?v=' + version;
+        const componentUrl = '/ganitt/ganitt-component.js?v=' + version;
+        
+        import(engineUrl).then(module => {
+            window.MathDiagramEngine = module.default;
+            return import(componentUrl);
+        }).then(module => {
+            window.GanittComponent = module.default;
+            
+            // Initialize Ganitt component
+            new window.GanittComponent('ganitt-container', {
+                width: 800,
+                height: 600,
+                autoRender: true
+            });
+        }).catch(error => {
+            console.error('Failed to load modules:', error);
+        });
+    </script>
+</body>
+</html>
