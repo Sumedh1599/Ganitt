@@ -1,14 +1,12 @@
 # Ganitt 🎨
 
-**Ganitt - Interactive Math Diagram Component for Web Applications**
-
-Create beautiful mathematical diagrams, graphs, charts, and figures with simple text-based definitions. Perfect for educational content, documentation, and interactive web applications.
+**Ganitt - Interactive Math Diagram Component for Web Applications**. Create beautiful mathematical diagrams, graphs, charts, and figures with simple text-based definitions.
 
 ## ✨ Features
 
 - **📊 Mathematical Functions**: Linear, quadratic, cubic, exponential, logarithmic, trigonometric, and more
 - **📐 Geometric Shapes**: Points, lines, circles, polygons, and custom shapes
-- **📈 Statistical Charts**: Histograms, scatter plots, line charts, bar charts, pie charts
+- **📈 Statistical Charts**: Histograms, scatter plots, line charts, bar charts
 - **🗺️ Coordinate Systems**: Cartesian, polar, and parametric systems
 - **🌐 Web Interface**: Interactive editor with real-time preview
 - **⚡ High Performance**: Fast rendering with optimized canvas operations
@@ -21,28 +19,18 @@ Create beautiful mathematical diagrams, graphs, charts, and figures with simple 
 ### Installation
 
 ```bash
-npm install ganitt
+npm install
 ```
 
-### Basic Usage
-
-```javascript
-import GanittComponent from './ganitt/ganitt-component.js';
-
-// Create component
-const component = new GanittComponent('my-container', {
-  width: 800,
-  height: 600,
-  autoRender: true
-});
-```
-
-### Running Demo
+### Running the Demo
 
 ```bash
-git clone https://github.com/Sumedh1599/Ganitt.git
-cd Ganitt
-npm install
+npm run dev
+```
+
+### Starting the Web Server
+
+```bash
 npm start
 ```
 
@@ -57,32 +45,32 @@ Then open http://localhost:3001 in your browser!
 math-function
 type: linear
 equation: "2*x + 3"
-range-x: [-5, 5]
-range-y: [-5, 15]
+range-x: [-10, 10]
+range-y: [-10, 10]
 color: "#ff0000"
-title: "Linear Function"
+line-width: 2
 ```
 
-#### Exponential Function
+#### Sine Wave
 ```
 math-function
-type: exponential
-equation: "exp(x)"
-range-x: [-3, 3]
-range-y: [0, 20]
-color: "#ff8800"
-title: "Exponential Function"
+type: trigonometric
+equation: "sin(x)"
+range-x: [0, 6.28]
+range-y: [-1.5, 1.5]
+color: "#0000ff"
+line-width: 2
 ```
 
-#### Logarithmic Function
+#### Quadratic Function
 ```
 math-function
-type: logarithmic
-equation: "log(x)"
-range-x: [0.1, 10]
-range-y: [-2, 2]
-color: "#8800ff"
-title: "Logarithmic Function"
+type: quadratic
+equation: "x^2 - 4*x + 3"
+range-x: [-2, 6]
+range-y: [-5, 15]
+color: "#00ff00"
+line-width: 2
 ```
 
 ### Geometric Shapes
@@ -92,12 +80,11 @@ title: "Logarithmic Function"
 geometry-shape
 type: circle
 coordinates: [{"x": 400, "y": 300}]
-radius: 50
+radius: 80
 fill: true
-fill-color: "#0088ff"
-stroke-color: "#0000ff"
-stroke-width: 2
-title: "Circle"
+fill-color: "#ffcccc"
+stroke-color: "#ff0000"
+stroke-width: 3
 ```
 
 #### Triangle
@@ -106,61 +93,77 @@ geometry-shape
 type: polygon
 coordinates: [{"x": 400, "y": 200}, {"x": 300, "y": 400}, {"x": 500, "y": 400}]
 fill: true
-fill-color: "#00ff88"
-stroke-color: "#008800"
+fill-color: "#ccffcc"
+stroke-color: "#00ff00"
 stroke-width: 2
-title: "Triangle"
 ```
 
 ### Statistical Charts
 
-#### Bar Chart
+#### Histogram
 ```
 statistics-chart
-type: bar-chart
-data: [10, 25, 15, 30, 20]
-labels: ["A", "B", "C", "D", "E"]
-color: "#0088ff"
-title: "Bar Chart"
+type: histogram
+data: [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5]
+bins: 5
+color: "#ff6600"
+show-mean: true
 ```
 
-#### Pie Chart
+#### Scatter Plot
 ```
 statistics-chart
-type: pie-chart
-data: [30, 25, 20, 15, 10]
-labels: ["A", "B", "C", "D", "E"]
-colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"]
-title: "Pie Chart"
+type: scatter
+data: [{"x": 1, "y": 2}, {"x": 2, "y": 4}, {"x": 3, "y": 3}, {"x": 4, "y": 5}]
+color: "#009900"
 ```
 
-## 🎨 Examples
+### Coordinate Systems
 
-### Logarithmic Function
-![Logarithmic Function](../assets/Logarithmic%20function.png)
+#### Cartesian System
+```
+coordinate-system
+type: cartesian
+range-x: [-5, 5]
+range-y: [-5, 5]
+grid-spacing: 1
+show-grid: true
+show-axes: true
+show-labels: true
+```
 
-### Heatmap Visualization
-![Heatmap](../assets/heatmap.png)
+## 🔧 API Usage
 
-## 🌐 Live Demo
-
-Try the interactive demo: **http://localhost:3001/ganitt/demo.html**
-
-Features:
-- **🎨 Real-time Rendering**: See your diagram update as you type
-- **📝 Input/Output Tabs**: Clean separation between code and result
-- **🎯 Live Status**: Real-time rendering status indicator
-- **💾 Export Options**: Download image or copy to clipboard
-- **🌙 Theme Support**: Light and dark modes
-- **📱 Responsive**: Works on all screen sizes
-
-## 🔧 API Integration
-
-### RESTful API
+### Node.js Integration
 
 ```javascript
-// Render diagram via API
-const response = await fetch('/api/render', {
+import MathDiagramEngine from './src/engine/math-diagram-engine.js';
+
+const engine = new MathDiagramEngine({
+  width: 800,
+  height: 600
+});
+
+// Render a diagram
+const result = await engine.render(`
+math-function
+type: linear
+equation: "2*x + 3"
+range-x: [-10, 10]
+range-y: [-10, 10]
+color: "#ff0000"
+`);
+
+if (result.success) {
+  // Save to file (Node.js)
+  const buffer = result.canvas.toBuffer('image/png');
+  require('fs').writeFileSync('diagram.png', buffer);
+}
+```
+
+### Web API
+
+```javascript
 // POST /api/render
 const response = await fetch('http://localhost:3000/api/render', {
   method: 'POST',
