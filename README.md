@@ -1,59 +1,49 @@
-# Ganitt 🎨
+# Ganitt
 
-**Ganitt - Interactive Math Diagram Component for Web Applications**. Create beautiful mathematical diagrams, graphs, charts, and figures with simple text-based definitions.
+**A text-based mathematical diagram engine — like Mermaid, but built for math.**
 
----
+Ganitt lets you define graphs, geometric shapes, statistical charts, and coordinate systems using a simple, readable syntax. It renders them instantly to interactive canvas — no code, no configuration overhead.
 
-## 📜 **Copyright & Credits**
-
-**© 2024 Ganitt Component**  
-*Created by: Sumedh Patil*  
-*Company: Aipresso UK*  
-*Contact: admin@aipresso.uk*
-
-*This component is protected by copyright. Unauthorized distribution, modification, or commercial use without explicit permission is prohibited.*
+![Ganitt Scatter Plot](examples/assets/scatterplot.png)
 
 ---
 
-## ✨ Features
+## What is Ganitt?
 
-- **📊 Mathematical Functions**: Linear, quadratic, cubic, exponential, logarithmic, trigonometric, and more
-- **📐 Geometric Shapes**: Points, lines, circles, polygons, and custom shapes
-- **📈 Statistical Charts**: Histograms, scatter plots, line charts, bar charts
-- **🗺️ Coordinate Systems**: Cartesian, polar, and parametric systems
-- **🌐 Web Interface**: Interactive editor with real-time preview
-- **⚡ High Performance**: Fast rendering with optimized canvas operations
-- **📝 Comprehensive Logging**: Detailed error tracking and performance metrics
-- **🔧 Node.js Integration**: Use in server-side applications
-- **🎯 Easy Syntax**: Simple, intuitive text-based diagram definitions
+Ganitt is a mathematical diagram engine inspired by the simplicity of Mermaid.js. Where Mermaid brought text-based flowcharts and sequence diagrams to the web, Ganitt does the same for mathematics. Define a quadratic function, a polar coordinate system, or a scatter plot in a few lines of plain text — Ganitt handles the rest.
 
-## 🚀 Quick Start
+It was built to solve a specific gap: there was no lightweight, text-driven tool that could render publication-quality mathematical figures directly in a web application without heavy dependencies or manual canvas scripting. Ganitt fills that gap by combining an expressive syntax with a high-performance Node.js rendering engine built on top of `math.js` and `node-canvas`.
 
-### Installation
+Whether you're building an educational platform, a data dashboard, or a scientific visualization tool, Ganitt gives you a clean, composable API to generate figures programmatically or through a live web editor.
+
+**Key capabilities:**
+- Mathematical functions — linear, quadratic, cubic, exponential, logarithmic, trigonometric, hyperbolic
+- Geometric shapes — points, lines, circles, polygons, arcs
+- Statistical charts — histograms, scatter plots, line charts, bar charts, pie charts
+- Coordinate systems — Cartesian, polar, parametric
+- Live web editor with real-time preview
+- Node.js API for server-side rendering and batch processing
+- Comprehensive logging and performance metrics
+
+---
+
+## Installation
 
 ```bash
 npm install
-```
-
-### Running the Demo
-
-```bash
 npm start
 ```
 
-Then open http://localhost:3001 in your browser!
+Open `http://localhost:3001` in your browser.
 
-### Starting the Web Server
+---
 
-```bash
-npm start
-```
+## Syntax
 
-## 📖 Usage Examples
+Each diagram block starts with a type keyword, followed by key-value properties.
 
 ### Mathematical Functions
 
-#### Linear Function
 ```
 math-function
 type: linear
@@ -64,340 +54,18 @@ color: "#ff0000"
 title: "Linear Function"
 ```
 
-#### Quadratic Function
-```
-math-function
-type: quadratic
-equation: "x^2 - 4*x + 3"
-range-x: [-2, 6]
-range-y: [-5, 10]
-color: "#0088ff"
-title: "Quadratic Function"
-```
-
-#### Exponential Function
-```
-math-function
-type: exponential
-equation: "exp(x)"
-range-x: [-3, 3]
-range-y: [-1, 20]
-color: "#ff8800"
-title: "Exponential Function"
-```
-
-#### Logarithmic Function
-```
-math-function
-type: logarithmic
-equation: "log(x)"
-range-x: [0.1, 10]
-range-y: [-3, 3]
-color: "#8800ff"
-title: "Logarithmic Function"
-```
-
-![Logarithmic Function](examples/assets/Logarithmic%20function.png)
-
-#### Trigonometric Functions
 ```
 math-function
 type: sine
 equation: "sin(x)"
 range-x: [-6.28, 6.28]
 range-y: [-1.5, 1.5]
-color: "#00aa00"
-title: "Sine Function"
-
-math-function
-type: cosine
-equation: "cos(x)"
-range-x: [-6.28, 6.28]
-range-y: [-1.5, 1.5]
-color: "#aa00aa"
-title: "Cosine Function"
-```
-
-### Geometric Shapes
-
-#### Circle
-```
-geometry-shape
-type: circle
-coordinates: [{"x": 400, "y": 300}]
-radius: 50
-fill: true
-fill-color: "#ff0000"
-stroke-color: "#0000ff"
-stroke-width: 3
-title: "Circle"
-```
-
-#### Rectangle
-```
-geometry-shape
-type: rectangle
-coordinates: [{"x": 300, "y": 200}, {"x": 500, "y": 400}]
-fill: true
-fill-color: "#00ff00"
-stroke-color: "#000000"
-stroke-width: 2
-title: "Rectangle"
-```
-
-#### Line
-```
-geometry-shape
-type: line
-coordinates: [{"x": 100, "y": 100}, {"x": 700, "y": 500}]
-stroke-color: "#ff0000"
-stroke-width: 3
-title: "Line"
-```
-
-#### Triangle
-```
-geometry-shape
-type: polygon
-coordinates: [{"x": 400, "y": 100}, {"x": 300, "y": 300}, {"x": 500, "y": 300}]
-fill: true
-fill-color: "#ffff00"
-stroke-color: "#000000"
-stroke-width: 2
-title: "Triangle"
-```
-
-### Statistical Charts
-
-#### Bar Chart
-```
-statistics-chart
-type: bar-chart
-data: [10, 25, 15, 30, 20]
-labels: ["A", "B", "C", "D", "E"]
 color: "#0088ff"
-title: "Bar Chart"
-```
-
-#### Pie Chart
-```
-statistics-chart
-type: pie-chart
-data: [30, 25, 20, 15, 10]
-labels: ["Category A", "Category B", "Category C", "Category D", "Category E"]
-colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"]
-title: "Pie Chart"
-```
-
-#### Line Chart
-```
-statistics-chart
-type: line-chart
-data: [10, 15, 13, 17, 6, 9, 15, 25, 20, 18]
-labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"]
-color: "#ff8800"
-title: "Line Chart"
-```
-
-#### Scatter Plot
-```
-statistics-chart
-type: scatter-plot
-data: [{"x": 1, "y": 2}, {"x": 2, "y": 5}, {"x": 3, "y": 3}, {"x": 4, "y": 8}, {"x": 5, "y": 6}]
-range-x: [0, 6]
-range-y: [0, 10]
-color: "#8800ff"
-title: "Scatter Plot"
-```
-
-#### Histogram
-```
-statistics-chart
-type: histogram
-data: [5, 8, 12, 15, 8, 6, 3, 1]
-range-x: [0, 8]
-range-y: [0, 20]
-color: "#00aa00"
-title: "Histogram"
-```
-
-![Heatmap Example](examples/assets/heatmap.png)
-
-### Coordinate Systems
-
-#### Cartesian Coordinate System
-```
-coordinate-system
-type: cartesian
-range-x: [-10, 10]
-range-y: [-10, 10]
-grid: true
-labels: true
-title: "Cartesian Coordinate System"
-```
-
-#### Polar Coordinate System
-```
-coordinate-system
-type: polar
-range-r: [0, 10]
-range-theta: [0, 360]
-grid: true
-labels: true
-title: "Polar Coordinate System"
-```
-
-## 🔧 Component Integration
-
-### Basic Usage
-```javascript
-import GanittComponent from './ganitt/ganitt-component.js';
-
-const component = new GanittComponent('my-container', {
-  width: 800,
-  height: 600,
-  autoRender: true
-});
-```
-
-### Advanced Configuration
-```javascript
-const component = new GanittComponent('my-container', {
-  width: 1000,
-  height: 700,
-  autoRender: false,
-  theme: 'dark',
-  showGrid: true,
-  showAxes: true,
-  showLabels: true
-});
-```
-
-## 🌐 API Usage
-
-### Render Diagram
-```javascript
-fetch('/api/render', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    diagramText: 'math-function\ntype: linear\nequation: "2*x + 1"'
-  })
-})
-.then(res => res.json())
-.then(data => console.log(data));
-```
-
-### Health Check
-```javascript
-fetch('/api/health')
-.then(res => res.json())
-.then(data => console.log(data));
-```
-
-## 📁 Project Structure
-
-```
-ganitt/
-├── ganitt/
-│   ├── ganitt-component.js    # Main component
-│   └── demo.html           # Demo page
-├── src/
-│   ├── engine/             # Diagram engine
-│   ├── parsers/            # Diagram parsers
-│   ├── renderers/         # Canvas renderers
-│   ├── types/             # Type definitions
-│   ├── utils/             # Utilities
-│   └── web/               # Web server
-├── package.json            # Package configuration
-├── README.md              # This file
-└── COMPONENT-USAGE.md      # Detailed usage guide
-```
-
-## 🛠️ Development
-
-### Running Tests
-```bash
-npm test
-```
-
-### Building for Production
-```bash
-npm run build
-```
-
-### Development Mode
-```bash
-npm run dev
-```
-
-## 📄 License
-
-**© 2024 Ganitt Component - All Rights Reserved**
-
-*Created by: Sumedh Patil*  
-*Company: Aipresso UK*  
-*Contact: admin@aipresso.uk*
-
-This software is proprietary and protected by copyright law. Unauthorized reproduction, distribution, or modification is strictly prohibited without written permission from the copyright holder.
-
-## 🤝 Support
-
-For support, licensing inquiries, or custom development:
-- **Email**: admin@aipresso.uk
-- **Company**: Aipresso UK
-- **Developer**: Sumedh Patil
-
----
-
-*Ganitt - Professional Math Diagram Component for Modern Web Applications*
-
-```bash
-npm start
-```
-
-Then open http://localhost:3001 in your browser!
-
-## 📖 Usage Examples
-
-### Mathematical Functions
-
-#### Linear Function
-```
-math-function
-type: linear
-equation: "2*x + 3"
-range-x: [-10, 10]
-range-y: [-10, 10]
-color: "#ff0000"
-line-width: 2
-```
-
-#### Sine Wave
-```
-math-function
-type: trigonometric
-equation: "sin(x)"
-range-x: [0, 6.28]
-range-y: [-1.5, 1.5]
-color: "#0000ff"
-line-width: 2
-```
-
-#### Quadratic Function
-```
-math-function
-type: quadratic
-equation: "x^2 - 4*x + 3"
-range-x: [-2, 6]
-range-y: [-5, 15]
-color: "#00ff00"
-line-width: 2
+title: "Sine Wave"
 ```
 
 ### Geometric Shapes
 
-#### Circle
 ```
 geometry-shape
 type: circle
@@ -409,240 +77,133 @@ stroke-color: "#ff0000"
 stroke-width: 3
 ```
 
-#### Triangle
 ```
 geometry-shape
 type: polygon
 coordinates: [{"x": 400, "y": 200}, {"x": 300, "y": 400}, {"x": 500, "y": 400}]
 fill: true
 fill-color: "#ccffcc"
-stroke-color: "#00ff00"
+stroke-color: "#00aa00"
 stroke-width: 2
+title: "Triangle"
 ```
 
 ### Statistical Charts
 
-#### Histogram
+<table>
+<tr>
+<td>
+
 ```
 statistics-chart
-type: histogram
-data: [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5]
-bins: 5
-color: "#ff6600"
-show-mean: true
+type: bar-chart
+data: [10, 25, 15, 30, 20]
+labels: ["A", "B", "C", "D", "E"]
+color: "#0088ff"
+title: "Bar Chart"
 ```
 
-#### Scatter Plot
+</td>
+<td>
+
 ```
 statistics-chart
-type: scatter
-data: [{"x": 1, "y": 2}, {"x": 2, "y": 4}, {"x": 3, "y": 3}, {"x": 4, "y": 5}]
-color: "#009900"
+type: scatter-plot
+data: [{"x":1,"y":2},{"x":2,"y":5},
+       {"x":3,"y":3},{"x":4,"y":8}]
+color: "#8800ff"
+title: "Scatter Plot"
 ```
+
+</td>
+<td>
+
+```
+statistics-chart
+type: pie-chart
+data: [30, 25, 20, 15, 10]
+labels: ["A","B","C","D","E"]
+colors: ["#ff0000","#00ff00",
+         "#0000ff","#ffff00","#ff00ff"]
+title: "Pie Chart"
+```
+
+</td>
+</tr>
+</table>
 
 ### Coordinate Systems
 
-#### Cartesian System
 ```
 coordinate-system
 type: cartesian
-range-x: [-5, 5]
-range-y: [-5, 5]
-grid-spacing: 1
-show-grid: true
-show-axes: true
-show-labels: true
+range-x: [-10, 10]
+range-y: [-10, 10]
+grid: true
+labels: true
+title: "Cartesian Coordinate System"
 ```
 
-## 🔧 API Usage
+---
 
-### Node.js Integration
+## API
+
+### Node.js
 
 ```javascript
 import MathDiagramEngine from './src/engine/math-diagram-engine.js';
 
-const engine = new MathDiagramEngine({
-  width: 800,
-  height: 600
-});
+const engine = new MathDiagramEngine({ width: 800, height: 600 });
 
-// Render a diagram
 const result = await engine.render(`
 math-function
-type: linear
-equation: "2*x + 3"
-range-x: [-10, 10]
-range-y: [-10, 10]
-color: "#ff0000"
+type: quadratic
+equation: "x^2 - 4*x + 3"
+range-x: [-2, 6]
+range-y: [-5, 10]
+color: "#0088ff"
 `);
 
 if (result.success) {
-  // Save to file (Node.js)
-  const buffer = result.canvas.toBuffer('image/png');
-  require('fs').writeFileSync('diagram.png', buffer);
+  fs.writeFileSync('diagram.png', result.canvas.toBuffer('image/png'));
 }
 ```
 
-### Web API
+### Web
 
 ```javascript
-// POST /api/render
-const response = await fetch('http://localhost:3000/api/render', {
+const response = await fetch('/api/render', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    diagramText: `
-math-function
-type: linear
-equation: "x"
-range-x: [-10, 10]
-range-y: [-10, 10]
-`
-  })
+  body: JSON.stringify({ diagramText: '...' })
 });
 
-const result = await response.json();
-if (result.success) {
-  const img = document.createElement('img');
-  img.src = result.imageData;
-  document.body.appendChild(img);
-}
+const { imageData } = await response.json();
 ```
-
-## 📊 Supported Diagram Types
-
-### Mathematical Functions
-- **Linear Functions**: `y = mx + b`
-- **Quadratic Functions**: `y = ax² + bx + c`
-- **Cubic Functions**: `y = ax³ + bx² + cx + d`
-- **Polynomial Functions**: Higher degree polynomials
-- **Exponential Functions**: `y = a^x`
-- **Logarithmic Functions**: `y = log(x)`
-- **Trigonometric Functions**: sin, cos, tan, etc.
-- **Hyperbolic Functions**: sinh, cosh, tanh
-
-### Geometric Shapes
-- **Points**: Individual coordinates
-- **Lines**: Connected points
-- **Circles**: Center point + radius
-- **Polygons**: Multiple vertices
-- **Arcs**: Circular segments
-
-### Statistical Charts
-- **Histograms**: Frequency distributions
-- **Scatter Plots**: Correlation visualization
-- **Line Charts**: Time series data
-- **Bar Charts**: Categorical data
-
-### Coordinate Systems
-- **Cartesian**: Standard x-y plane
-- **Polar**: r-θ coordinates
-- **Parametric**: x(t), y(t) functions
-
-## 🎨 Customization Options
-
-### Colors
-- Hex colors: `"#ff0000"`
-- RGB colors: `"rgb(255, 0, 0)"`
-- Named colors: `"red"`
-
-### Styling
-- Line width: `line-width: 2`
-- Fill colors: `fill-color: "#00ff00"`
-- Stroke colors: `stroke-color: "#000000"`
-- Font settings: `font-family: "Arial"`
-
-### Ranges and Scaling
-- X-axis range: `range-x: [-10, 10]`
-- Y-axis range: `range-y: [-5, 15]`
-- Grid spacing: `grid-spacing: 1`
-
-## 🧪 Testing
-
-Run the comprehensive test suite:
-
-```bash
-npm test
-```
-
-Run the demo with all diagram types:
-
-```bash
-npm run dev
-```
-
-## 📁 Project Structure
-
-```
-math-diagram-engine/
-├── src/
-│   ├── engine/           # Core rendering engine
-│   ├── parsers/          # Text parsing and validation
-│   ├── renderers/        # Canvas-based rendering
-│   ├── utils/            # Logging and utilities
-│   ├── types/            # Type definitions
-│   ├── web/              # Web server and interface
-│   └── index.js          # Main entry point
-├── tests/                # Test suite
-├── examples/             # Demo scripts
-├── docs/                 # Documentation
-├── logs/                 # Log files
-└── assets/               # Static resources
-```
-
-## 🔍 Logging and Debugging
-
-The engine includes comprehensive logging:
-
-```javascript
-import logger from './src/utils/logger.js';
-
-// View log statistics
-console.log(logger.getLogStats());
-
-// Clear logs
-logger.clearLogs();
-
-// Custom logging
-logger.info('Custom message', { data: 'value' });
-logger.error('Error occurred', { error: 'details' });
-```
-
-Log files are stored in `logs/math-diagram-engine.log`.
-
-## 🚀 Performance
-
-- **Fast Rendering**: Optimized canvas operations
-- **Efficient Parsing**: Quick text-to-object conversion
-- **Memory Management**: Automatic cleanup
-- **Batch Processing**: Support for multiple diagrams
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all tests pass
-5. Submit a pull request
-
-## 📄 License
-
-MIT License - see LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- Inspired by **Mermaid.js** for text-based diagram syntax
-- Uses **math.js** for mathematical expression parsing
-- Canvas rendering based on **node-canvas** for Node.js compatibility
-- UI/UX design inspired by modern web applications
-
-## 📞 Support
-
-- 📧 Issues: Report bugs on GitHub
-- 📖 Documentation: Check the examples directory
-- 🌐 Web Interface: http://localhost:3000
-- 🔧 API Documentation: http://localhost:3000/api
 
 ---
 
-**Built with ❤️ for mathematics enthusiasts and educators!**
+## Project Structure
+
+```
+ganitt/
+├── src/
+│   ├── engine/       # Core rendering engine
+│   ├── parsers/      # Text-to-object parsing
+│   ├── renderers/    # Canvas rendering
+│   ├── utils/        # Logging, utilities
+│   └── web/          # Web server
+├── ganitt/
+│   ├── ganitt-component.js
+│   └── demo.html
+└── examples/
+```
+
+---
+
+## License & Credits
+
+© 2024 Ganitt — All Rights Reserved  
+Created by **Sumedh Patil** · [Aipresso UK](mailto:admin@aipresso.uk)
+
+This software is proprietary. Unauthorized distribution or modification without written permission is prohibited. For licensing inquiries, contact `admin@aipresso.uk`.
