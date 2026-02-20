@@ -2,6 +2,19 @@
 
 **Ganitt - Interactive Math Diagram Component for Web Applications**. Create beautiful mathematical diagrams, graphs, charts, and figures with simple text-based definitions.
 
+---
+
+## 📜 **Copyright & Credits**
+
+**© 2024 Ganitt Component**  
+*Created by: Sumedh Patil*  
+*Company: Aipresso UK*  
+*Contact: admin@aipresso.uk*
+
+*This component is protected by copyright. Unauthorized distribution, modification, or commercial use without explicit permission is prohibited.*
+
+---
+
 ## ✨ Features
 
 - **📊 Mathematical Functions**: Linear, quadratic, cubic, exponential, logarithmic, trigonometric, and more
@@ -25,10 +38,319 @@ npm install
 ### Running the Demo
 
 ```bash
+npm start
+```
+
+Then open http://localhost:3001 in your browser!
+
+### Starting the Web Server
+
+```bash
+npm start
+```
+
+## 📖 Usage Examples
+
+### Mathematical Functions
+
+#### Linear Function
+```
+math-function
+type: linear
+equation: "2*x + 3"
+range-x: [-5, 5]
+range-y: [-5, 15]
+color: "#ff0000"
+title: "Linear Function"
+```
+
+#### Quadratic Function
+```
+math-function
+type: quadratic
+equation: "x^2 - 4*x + 3"
+range-x: [-2, 6]
+range-y: [-5, 10]
+color: "#0088ff"
+title: "Quadratic Function"
+```
+
+#### Exponential Function
+```
+math-function
+type: exponential
+equation: "exp(x)"
+range-x: [-3, 3]
+range-y: [-1, 20]
+color: "#ff8800"
+title: "Exponential Function"
+```
+
+#### Logarithmic Function
+```
+math-function
+type: logarithmic
+equation: "log(x)"
+range-x: [0.1, 10]
+range-y: [-3, 3]
+color: "#8800ff"
+title: "Logarithmic Function"
+```
+
+![Logarithmic Function](examples/assets/Logarithmic%20function.png)
+
+#### Trigonometric Functions
+```
+math-function
+type: sine
+equation: "sin(x)"
+range-x: [-6.28, 6.28]
+range-y: [-1.5, 1.5]
+color: "#00aa00"
+title: "Sine Function"
+
+math-function
+type: cosine
+equation: "cos(x)"
+range-x: [-6.28, 6.28]
+range-y: [-1.5, 1.5]
+color: "#aa00aa"
+title: "Cosine Function"
+```
+
+### Geometric Shapes
+
+#### Circle
+```
+geometry-shape
+type: circle
+coordinates: [{"x": 400, "y": 300}]
+radius: 50
+fill: true
+fill-color: "#ff0000"
+stroke-color: "#0000ff"
+stroke-width: 3
+title: "Circle"
+```
+
+#### Rectangle
+```
+geometry-shape
+type: rectangle
+coordinates: [{"x": 300, "y": 200}, {"x": 500, "y": 400}]
+fill: true
+fill-color: "#00ff00"
+stroke-color: "#000000"
+stroke-width: 2
+title: "Rectangle"
+```
+
+#### Line
+```
+geometry-shape
+type: line
+coordinates: [{"x": 100, "y": 100}, {"x": 700, "y": 500}]
+stroke-color: "#ff0000"
+stroke-width: 3
+title: "Line"
+```
+
+#### Triangle
+```
+geometry-shape
+type: polygon
+coordinates: [{"x": 400, "y": 100}, {"x": 300, "y": 300}, {"x": 500, "y": 300}]
+fill: true
+fill-color: "#ffff00"
+stroke-color: "#000000"
+stroke-width: 2
+title: "Triangle"
+```
+
+### Statistical Charts
+
+#### Bar Chart
+```
+statistics-chart
+type: bar-chart
+data: [10, 25, 15, 30, 20]
+labels: ["A", "B", "C", "D", "E"]
+color: "#0088ff"
+title: "Bar Chart"
+```
+
+#### Pie Chart
+```
+statistics-chart
+type: pie-chart
+data: [30, 25, 20, 15, 10]
+labels: ["Category A", "Category B", "Category C", "Category D", "Category E"]
+colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"]
+title: "Pie Chart"
+```
+
+#### Line Chart
+```
+statistics-chart
+type: line-chart
+data: [10, 15, 13, 17, 6, 9, 15, 25, 20, 18]
+labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"]
+color: "#ff8800"
+title: "Line Chart"
+```
+
+#### Scatter Plot
+```
+statistics-chart
+type: scatter-plot
+data: [{"x": 1, "y": 2}, {"x": 2, "y": 5}, {"x": 3, "y": 3}, {"x": 4, "y": 8}, {"x": 5, "y": 6}]
+range-x: [0, 6]
+range-y: [0, 10]
+color: "#8800ff"
+title: "Scatter Plot"
+```
+
+#### Histogram
+```
+statistics-chart
+type: histogram
+data: [5, 8, 12, 15, 8, 6, 3, 1]
+range-x: [0, 8]
+range-y: [0, 20]
+color: "#00aa00"
+title: "Histogram"
+```
+
+![Heatmap Example](examples/assets/heatmap.png)
+
+### Coordinate Systems
+
+#### Cartesian Coordinate System
+```
+coordinate-system
+type: cartesian
+range-x: [-10, 10]
+range-y: [-10, 10]
+grid: true
+labels: true
+title: "Cartesian Coordinate System"
+```
+
+#### Polar Coordinate System
+```
+coordinate-system
+type: polar
+range-r: [0, 10]
+range-theta: [0, 360]
+grid: true
+labels: true
+title: "Polar Coordinate System"
+```
+
+## 🔧 Component Integration
+
+### Basic Usage
+```javascript
+import GanittComponent from './ganitt/ganitt-component.js';
+
+const component = new GanittComponent('my-container', {
+  width: 800,
+  height: 600,
+  autoRender: true
+});
+```
+
+### Advanced Configuration
+```javascript
+const component = new GanittComponent('my-container', {
+  width: 1000,
+  height: 700,
+  autoRender: false,
+  theme: 'dark',
+  showGrid: true,
+  showAxes: true,
+  showLabels: true
+});
+```
+
+## 🌐 API Usage
+
+### Render Diagram
+```javascript
+fetch('/api/render', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    diagramText: 'math-function\ntype: linear\nequation: "2*x + 1"'
+  })
+})
+.then(res => res.json())
+.then(data => console.log(data));
+```
+
+### Health Check
+```javascript
+fetch('/api/health')
+.then(res => res.json())
+.then(data => console.log(data));
+```
+
+## 📁 Project Structure
+
+```
+ganitt/
+├── ganitt/
+│   ├── ganitt-component.js    # Main component
+│   └── demo.html           # Demo page
+├── src/
+│   ├── engine/             # Diagram engine
+│   ├── parsers/            # Diagram parsers
+│   ├── renderers/         # Canvas renderers
+│   ├── types/             # Type definitions
+│   ├── utils/             # Utilities
+│   └── web/               # Web server
+├── package.json            # Package configuration
+├── README.md              # This file
+└── COMPONENT-USAGE.md      # Detailed usage guide
+```
+
+## 🛠️ Development
+
+### Running Tests
+```bash
+npm test
+```
+
+### Building for Production
+```bash
+npm run build
+```
+
+### Development Mode
+```bash
 npm run dev
 ```
 
-### Starting the Web Server
+## 📄 License
+
+**© 2024 Ganitt Component - All Rights Reserved**
+
+*Created by: Sumedh Patil*  
+*Company: Aipresso UK*  
+*Contact: admin@aipresso.uk*
+
+This software is proprietary and protected by copyright law. Unauthorized reproduction, distribution, or modification is strictly prohibited without written permission from the copyright holder.
+
+## 🤝 Support
+
+For support, licensing inquiries, or custom development:
+- **Email**: admin@aipresso.uk
+- **Company**: Aipresso UK
+- **Developer**: Sumedh Patil
+
+---
+
+*Ganitt - Professional Math Diagram Component for Modern Web Applications*
 
 ```bash
 npm start
